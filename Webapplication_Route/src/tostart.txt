@@ -1,0 +1,8 @@
+website: npm start
+
+server : npx json-server --watch backend/data.json --port 8000
+
+
+website on port 3000 ---> eventuell freigeben zur übertragung 
+server auf port 8000
+#--> keine doppelten ports
