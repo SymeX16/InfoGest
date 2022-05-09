@@ -4,14 +4,14 @@ import { BrowserRouter as Router, Routes, Route, Link ,useNavigate} from "react-
 export default function Register() {
     
     
-    var Minio = require('minio')
+    var Minio = require("minio");
     var minioClient = new Minio.Client({
-        endPoint: '127.0.0.1',
-        port: 9000,
-        useSSL: false,
-        accessKey: 'admin1',
-        secretKey: 'password'
-    })
+      endPoint: "141.56.132.18",
+      port: 9000,
+      useSSL: false,
+      accessKey: "admin",
+      secretKey: "hgjkrwehg46782h87z",
+    });
     const navigate = useNavigate();
 
     function upload(u) {

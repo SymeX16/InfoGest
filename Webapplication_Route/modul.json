@@ -1,0 +1,220 @@
+{
+    "module": [
+        {
+            "modulId": "100000",
+            "modulName": "Test",
+            "leader": "Prof.Prof",
+            "leaderMail": "prof.p@gmail.com",
+            "usedModules": [
+                {
+                    "id": "0",
+                    "name": "Programm1",
+                    "spezificationNumber": "1111111"
+                },
+                {
+                    "id": "1",
+                    "name": "Programm2",
+                    "spezificationNumber": "1111110"
+                }
+            ],
+            "deadlines": [
+                {
+                    "name": "abgabe1",
+                    "doDatum": "2012-07-05T18:30:32.360Z"
+                },
+                {
+                    "name": "abgabe2",
+                    "doDatum": "2012-08-05T18:30:32.360Z"
+                }
+            ],
+            "grades": [
+                {
+                    "name": "abgabe2",
+                    "datum": "2012-07-05T18:30:32.360Z",
+                    "grade": "1",
+                    "studentID": "6"
+                },
+                {
+                    "name": "abgabe2",
+                    "datum": "2012-08-05T18:30:32.360Z",
+                    "grade": "true",
+                    "studentID": "6"
+                }
+            ],
+            "news": [
+                {
+                    "name": "Zwischneprüfung",
+                    "expiryDate": "2012-07-05T18:30:32.360Z"
+                }
+            ],
+            "schedule": [
+                {
+                    "room": "Z100",
+                    "time": "9:20-10:50",
+                    "dof" : "Montag",
+                    "week": "1",
+                    "type": "VL"
+                },
+                {
+                    "room": "Z100",
+                    "time": "9:20-10:50",
+                    "dof" : "Montag",
+                    "week": "2",
+                    "type": "VL"
+                },
+                {
+                    "room": "Z100",
+                    "time": "11:10-12:40",
+                    "dof" : "Dienstag",
+                    "week": "1",
+                    "type": "ÜB"
+                }
+            ]
+        },
+        {
+            "modulId": "100001",
+            "modulName": "Test2",
+            "leader": "Prof.Prof",
+            "leaderMail": "prof.p@gmail.com",
+            "usedModules": [
+                {
+                    "id": "0",
+                    "name": "Program3",
+                    "spezificationNumber": "1111111"
+                },
+                {
+                    "id": "1",
+                    "name": "Program3",
+                    "spezificationNumber": "1111110"
+                }
+            ],
+            "deadlines": [
+                {
+                    "name": "abgabe5",
+                    "doDatum": "2012-07-05T18:30:32.360Z"
+                },
+                {
+                    "name": "abgabe6",
+                    "doDatum": "2012-08-05T18:30:32.360Z"
+                }
+            ],
+            "grades": [
+                {
+                    "name": "abgabe5",
+                    "datum": "2012-07-05T18:30:32.360Z",
+                    "grade": "5",
+                    "studentID": "6"
+                },
+                {
+                    "name": "abgabe6",
+                    "datum": "2012-08-05T18:30:32.360Z",
+                    "grade": "true",
+                    "studentID": "5"
+                }
+            ],
+            "news": [
+                {
+                    "name": "Raumwechsel z18 -> Z19",
+                    "expiryDate": "2012-07-05T18:30:32.360Z"
+                },
+                {
+                    "name": "19.19.2000 Asfall",
+                    "expiryDate": "2012-08-05T18:30:32.360Z"
+                }
+            ],
+            "schedule": [
+                {
+                    "room": "Z102",
+                    "time": "9:20-10:50",
+                    "dof" : "Mitwoch",
+                    "week": "1",
+                    "type": "Prak"
+                },
+                {
+                    "room": "Z200",
+                    "time": "9:20-10:50",
+                    "dof" : "Montag",
+                    "week": "2",
+                    "type": "VL"
+                },
+                {
+                    "room": "Z300",
+                    "time": "11:10-12:40",
+                    "dof" : "Dienstag",
+                    "week": "1",
+                    "type": "Vl"
+                }
+            ]
+        },{
+            "modulId": "100011",
+            "modulName": "unsichtbar",
+            "leader": "Prof.Prof",
+            "leaderMail": "prof.p@gmail.com",
+            "usedModules": [
+                {
+                    "id": "0",
+                    "name": "Programm1",
+                    "spezificationNumber": "1111111"
+                },
+                {
+                    "id": "1",
+                    "name": "Programm2",
+                    "spezificationNumber": "1111110"
+                }
+            ],
+            "deadlines": [
+                {
+                    "name": "abgabe1",
+                    "doDatum": "2012-07-05T18:30:32.360Z"
+                },
+                {
+                    "name": "abgabe2",
+                    "doDatum": "2012-08-05T18:30:32.360Z"
+                }
+            ],
+            "grades": [
+                {
+                    "name": "abgabe2",
+                    "datum": "2012-07-05T18:30:32.360Z",
+                    "grade": "1",
+                    "studentID": "6"
+                },
+                {
+                    "name": "abgabe2",
+                    "datum": "2012-08-05T18:30:32.360Z",
+                    "grade": "true",
+                    "studentID": "6"
+                }
+            ],
+            "news": [
+                {
+                    "name": "Zwischneprüfung",
+                    "expiryDate": "2012-07-05T18:30:32.360Z"
+                }
+            ],
+            "schedule": [
+                {
+                    "room": "Z100",
+                    "time": "9:20-10:50",
+                    "dof" : "Montag",
+                    "week": "1",
+                    "type": "VL"
+                },
+                {
+                    "room": "Z100",
+                    "time": "9:20-10:50",
+                    "dof" : "Montag",
+                    "week": "2",
+                    "type": "VL"
+                },
+                {
+                    "room": "Z100",
+                    "time": "11:10-12:40",
+                    "dof" : "Dienstag",
+                    "week": "1",
+                    "type": "ÜB"
+                }
+            ]
+        }
+    ]
+}

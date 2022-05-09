@@ -3,6 +3,7 @@ import Login from "./Login";
 import Register from "./Register";
 import Interner from "./Interner";
 import Welcome from "./Welcome";
+import Modul from "./Modul";
 
 import {
   BrowserRouter as Router,
@@ -16,7 +17,8 @@ export default function Home() {
   
   const [userId, user] = React.useState(-1);
   const [userNick, setNick] = React.useState("");
-
+  const [modul, setModul] = React.useState();
+  
   function setName(value) {
     setNick(value);
     console.log(userNick);
@@ -25,6 +27,11 @@ export default function Home() {
   function setUser(value) {
     user(value);
     console.log(userId);
+  }
+
+  function setMod(value) {
+    setModul(value);
+    
   }
 
 
@@ -45,6 +52,9 @@ export default function Home() {
                 <Link to="/intern">intern</Link>
             </li>
             <li>
+                <Link to="/modul">modul</Link>
+            </li>
+            <li>
                 <Link to="/">home</Link>
             </li>
           </ul>
@@ -55,13 +65,15 @@ export default function Home() {
         <Route path="/" element={<Welcome/>}>
         </Route>
   
-         
+        <Route path="/modul" element={<Modul userId={user} modul={modul}
+                              />}>
+        </Route>
         <Route path="/login" element={<Login userId={setUser} userNick={setName}
                               />}>
         </Route>
         <Route path="/register" element={<Register/>}>
         </Route>
-        <Route path="/intern" element={<Interner userNick={userNick} userId={userId}/>}>
+        <Route path="/intern" element={<Interner userNick={userNick} userId={userId} setModul={setMod}/>}>
         </Route>
       </Routes>
     </Router>

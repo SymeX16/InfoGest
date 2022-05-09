@@ -1,0 +1,72 @@
+{
+    "studiengang": [
+        {
+            "sgNummer": "I43",
+            "sgName": "Medieninformatik",
+            "sgRegelstudienzeit": "6",
+            "sgCredits": 180,
+            "module": [
+                {
+                    "modul":"Elektronik für Medieninformatiker",
+                    "modulnummer":"E802",
+                    "credits":3,
+                    "semester":1
+                },
+                {
+                    "modul":"Grundlagen der Informatik I",
+                    "modulnummer":"I110",
+                    "credits":5,
+                    "semester":1
+                },
+                {
+                    "modul":"Programmierung II",
+                    "modulnummer":"I121",
+                    "credits":5,
+                    "semester":2
+                },
+                {
+                    "modul":"Grundlagen der Informatik II",
+                    "modulnummer":"I310",
+                    "credits":4,
+                    "semester":2
+                },
+                {
+                    "modul":"Konstruktive Geometrie",
+                    "modulnummer":"I381",
+                    "credits":3,
+                    "semester":2
+                },
+                {
+                    "modul":"Rechnerarchitektur",
+                    "modulnummer":"I135",
+                    "credits":4,
+                    "semester":3
+                },
+                {
+                    "modul":"Programmierung III",
+                    "modulnummer":"I320",
+                    "credits":5,
+                    "semester":3
+                },
+                {
+                    "modul":"Gestaltung interaktiver Systeme",
+                    "modulnummer":"I351",
+                    "credits":4,
+                    "semester":4
+                },
+                {
+                    "modul":"Medienproduktion",
+                    "modulnummer":"I378",
+                    "credits":3,
+                    "semester":4
+                },
+                {
+                    "modul":"Computeranimation",
+                    "modulnummer":"I362",
+                    "credits":5,
+                    "semester":5
+                }
+            ]
+        }
+    ]
+}

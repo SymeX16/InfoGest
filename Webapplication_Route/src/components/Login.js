@@ -4,15 +4,15 @@ import { BrowserRouter as Router, Routes, Route, Link ,useNavigate} from "react-
 
 export default function Login({
   userId,
-  userNick
-}) {
+  userNick}) {
+  
   var Minio = require("minio");
   var minioClient = new Minio.Client({
-    endPoint: "127.0.0.1",
+    endPoint: "141.56.132.18",
     port: 9000,
     useSSL: false,
-    accessKey: "admin1",
-    secretKey: "password",
+    accessKey: "admin",
+    secretKey: "hgjkrwehg46782h87z",
   });
 
   function start() {
