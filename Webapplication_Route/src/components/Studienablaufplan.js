@@ -53,38 +53,37 @@ export default function Studienablaufplan() {
       ),
    
     },
-    { field: 'Semester_2', headerName: 'Semester_2', width: 130 ,sortable: false,
+    { field: 'Semester_2', headerName: 'Semester_2', width: 270 ,sortable: false,
     renderCell: (params) => (
         <p>
           
           <StudienModul value={params.value}></StudienModul>
         </p>
       ),
-    width: 160},
-    { field: 'Semester_3', headerName: 'Semester_3', width: 130 ,sortable: false,
+    },
+    { field: 'Semester_3', headerName: 'Semester_3', width: 270 ,sortable: false,
     renderCell: (params) => (
         <p>
           
           <StudienModul value={params.value}></StudienModul>
         </p>
       ),
-    width: 160},
-    {field: 'Semester_4', headerName: 'Semester_4',width: 90,sortable: false,
+   },
+    {field: 'Semester_4', headerName: 'Semester_4',width: 270,sortable: false,
     renderCell: (params) => (
         <p>
           
           <StudienModul value={params.value}></StudienModul>
         </p>
       ),
-    width: 160},
-    {field: 'Semester_5',headerName: 'Semester_5',sortable: false,
+    },
+    {field: 'Semester_5',headerName: 'Semester_5',width: 270,sortable: false,
     renderCell: (params) => (
         <p>
          
           <StudienModul value={params.value}></StudienModul>
         </p>
       ),
-     width: 160
     },
   ];
   const [row,setRow]=React.useState([]);

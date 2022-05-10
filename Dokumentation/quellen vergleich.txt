@@ -1,0 +1,7 @@
+https://www.simform.com/blog/angular-vs-react/#:~:text=Angular%20is%20a%20Javascript%20framework,app%20with%20frequently%20variable%20data.
+React vs angular
+
+vue
+https://www.heise.de/developer/artikel/Was-man-ueber-Vue-js-wissen-sollte-4969211.html
+https://www.wigital.de/blog/warum-vue-als-javascript-framework.html
+https://entwickler.de/vuejs/vuejs-in-a-nutshell

@@ -1,0 +1,1840 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\begin_modules
+customHeadersFooters
+\end_modules
+\maintain_unincluded_children false
+\language ngerman
+\language_package auto
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "Comfortaa"
+\font_sans "default" "Comfortaa"
+\font_typewriter "default" "Comfortaa"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts true
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize a4paper
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2.5cm
+\topmargin 1.5cm
+\rightmargin 2.5cm
+\bottommargin 2cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation skip
+\defskip smallskip
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style german
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle fancy
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Dokumetation
+\end_layout
+
+\begin_layout Author
+Entwicklung des Backends
+\end_layout
+
+\begin_layout Date
+Stand: 03/02/22
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+pagenumbering{gobble}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+Autoren :
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+Jan Händl
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+Dustin Heyer
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+frontmatter
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+backmatter
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+pagenumbering{arabic}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+setcounter{page}{1}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Left Footer
+
+\end_layout
+
+\begin_layout Left Header
+
+\end_layout
+
+\begin_layout Right Header
+
+\end_layout
+
+\begin_layout Center Header
+
+\end_layout
+
+\begin_layout Right Footer
+
+\end_layout
+
+\begin_layout Section
+Zielbestimmung
+\end_layout
+
+\begin_layout Standard
+Entwickelt des Backend.
+ Das inkludiert das festlegen der Werkzeuge, das Erstellen von Speicherstrucktur
+en und das nachvollziehbare Dokumentieren der Arbeit.
+ 
+\end_layout
+
+\begin_layout Section
+Toolaufstellung
+\end_layout
+
+\begin_layout Standard
+In Folge zeigen und Begründen wir unsere Toolauswahl für die einzelnen Teilberei
+che des Projektes.
+\end_layout
+
+\begin_layout Subsection
+Server/ Online-Speicher
+\end_layout
+
+\begin_layout Standard
+Die beschränkte Auswahl ist auf die folgenden drei Optionen gefallen.
+ Zum einen aus Erfahrung und zum anderen damit von jeder Speicher Möglichkeit
+ ein Vertreter aufgeführt ist.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="4">
+<features booktabs="true" tabularvalignment="middle">
+<column alignment="left" valignment="top" width="2cm">
+<column alignment="left" valignment="top" width="4cm">
+<column alignment="left" valignment="top" width="4cm">
+<column alignment="left" valignment="top" width="4cm">
+<row topspace="0.2cm">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Minio
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Express
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+MongoDB
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row topspace="0.2cm">
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Vorrangiger Einsatz
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Cloud Storage
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Rest API
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+DB Speicherung
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row topspace="0.2cm">
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Vorteil
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Umgang mit großen Datenmengen
+\end_layout
+
+\begin_layout Plain Layout
+Docker
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Schnelles Aufsetzten und einsetzten
+\end_layout
+
+\begin_layout Plain Layout
+Node.js
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+JSON Format speicherbar
+\end_layout
+
+\begin_layout Plain Layout
+Docker
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row topspace="0.2cm">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Erfahrung
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Dustin vorhanden
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Jan vorhanden
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Keine 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Die Wahl wird hier von unserem Einsatz-Specktrum bestimmt.
+ Damit entscheiden wir uns gegen Mongo DB.
+ Extra eine solche Datenbank aufzusetzen wäre zu viel Aufwand und die Funktional
+ität von MongoDB zu mächtig für unsere Zwecke.
+ Es wäre Unverhältnismäßig.
+ Somit werde wir, Wie sich oben aus der Tabelle ergibt, alle Daten in Minio
+ Ablegen und Speichern.
+ Express nutzen wir dann für alle zusätzlichen Funktionalitäten welche nicht
+ auf Minio umgesetzt werden kann.
+ 
+\end_layout
+
+\begin_layout Subsection
+Auswerten von Daten
+\end_layout
+
+\begin_layout Standard
+R vs.
+ SPSS vs.
+ Python vs.
+ Excel
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="5">
+<features booktabs="true" tabularvalignment="middle">
+<column alignment="left" valignment="top" width="1.5cm">
+<column alignment="left" valignment="top" width="3cm">
+<column alignment="left" valignment="top" width="3cm">
+<column alignment="left" valignment="top" width="3cm">
+<column alignment="left" valignment="top" width="3cm">
+<row topspace="0.2cm">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+R
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+SPSS
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Python
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Exel
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row topspace="0.2cm">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Vorteile
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Statistiksoftware
+\end_layout
+
+\begin_layout Plain Layout
+Viele Pakete
+\end_layout
+
+\begin_layout Plain Layout
+Gut für komplexe Statistik 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Alt
+\end_layout
+
+\begin_layout Plain Layout
+Hat die gängigsten Methoden (ausgereift) 
+\end_layout
+
+\begin_layout Plain Layout
+meist aber im Bereich der Sozialwissenschaft genutzt 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Allzweckwaffe
+\end_layout
+
+\begin_layout Plain Layout
+Viele Tools 
+\end_layout
+
+\begin_layout Plain Layout
+Pandas Datenanalyse
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+nur einfache statistische Aufgaben möglich
+\end_layout
+
+\begin_layout Plain Layout
+Add in Datenanalyse
+\end_layout
+
+\begin_layout Plain Layout
+Macros nutzbar 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Hier schließen wir die ersten zwei Optionen aus.
+ Diese wären erneut unverhältnismaßig Komplex für unser Projekt.
+ Damit bleiben uns noch Python und Exel.
+ Wobei wir erstmal bei beiden bleiben können.
+ Python können wir nutzen um einen neuen Server-Stack aufzusetzen welcher
+ aktuelle Auswertungen durchführt oder passiv, auf Bedarf, Datenanalysen
+ durchführt.
+ Exel würde nur passiv genutzt werden ist aber unsere Backup Lösung.
+\end_layout
+
+\begin_layout Subsection
+Anwendungsmöglichkeiten
+\end_layout
+
+\begin_layout Standard
+Hier zählen wir die vier gängigsten Applikationmöglichkeiten vor und wägen
+ ab welche Option für uns am passensten ist.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="5">
+<features booktabs="true" tabularvalignment="middle">
+<column alignment="left" valignment="top" width="1.5cm">
+<column alignment="left" valignment="top" width="3cm">
+<column alignment="left" valignment="top" width="3cm">
+<column alignment="left" valignment="top" width="3cm">
+<column alignment="left" valignment="top" width="3cm">
+<row topspace="0.2cm">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Webapplikation
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+normale Applikation
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Handy App
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Eigenes Tool
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row topspace="0.2cm">
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Allgemein
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+leicht zu Entwickelnbekanntester Bereich
+\end_layout
+
+\begin_layout Plain Layout
+Html-Auszug möglich
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Auf dem Computer nutzbar 
+\end_layout
+
+\begin_layout Plain Layout
+Näher an xApi 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Direkt fürs Handy 
+\end_layout
+
+\begin_layout Plain Layout
+Am nächsten am Nutzer und der xApi 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Am schwersten zu machen
+\end_layout
+
+\begin_layout Plain Layout
+Entwicklung + Elektronik und BS 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row topspace="0.2cm">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+unsere Möglichkeiten
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+React, Angular,VoeJS
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Elektron, Java (AWT)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Android Studio
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+/
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Erstmal werden wir alles als Webapplikation entwickeln.
+ Dort ist die meiste Erfahrung vorhanden und somit der bester Fortschritt
+ zu erwarten.
+ Außerdem existieren Applikationen zum Umwandeln von Wepapp-Code zur den
+ Anderen Applikationstypen, womit mehreres auf einmal erreicht werden kann.
+\end_layout
+
+\begin_layout Subsection
+Webapplikationen
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="4">
+<features booktabs="true" tabularvalignment="middle">
+<column alignment="left" valignment="top" width="2cm">
+<column alignment="left" valignment="top" width="4cm">
+<column alignment="left" valignment="top" width="4cm">
+<column alignment="left" valignment="top" width="4cm">
+<row topspace="0.2cm">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+React
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Angular
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+VueJS
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row topspace="0.2cm">
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Basis
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Open-Source JavaScript-Bibliothek
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Entwicklungsplattform, die auf dem Typeskript basiert
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+JavaScript-Framework
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row topspace="0.2cm">
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+standart Einsatz
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+React wird verwendet, um UI-Komponenten in jeder App mit häufig variablen
+ Daten zu erstellen
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Angular wird hauptsächlich verwendet, um komplexe Apps für Unternehmen wie
+ Single-Page-Apps und progressive Web-Apps zu erstellen
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Progressivität und inkrementelle Einsetzbarkeit
+\end_layout
+
+\begin_layout Plain Layout
+Setzt mehr auf HTML
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row topspace="0.2cm">
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Lernkurve
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+moderat aufgrund kleiner Package-Größe
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+steil aufgrund vieler eingebauten Funktionalitäten
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+flache Lernkurve
+\end_layout
+
+\begin_layout Plain Layout
+vorsicht vor Spagetti-Code
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row topspace="0.2cm">
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Hauptargument
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Flexibilität
+\end_layout
+
+\begin_layout Plain Layout
+Großes Ökosystem
+\end_layout
+
+\begin_layout Plain Layout
+Kleine Teams
+\end_layout
+
+\begin_layout Plain Layout
+Viel Wahlfreiheit bei den benutzbaren Packages 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+TypeScript
+\end_layout
+
+\begin_layout Plain Layout
+Große Comunity
+\end_layout
+
+\begin_layout Plain Layout
+Für große Apps
+\end_layout
+
+\begin_layout Plain Layout
+Objekt orientiert
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Großes Ökosystem
+\end_layout
+
+\begin_layout Plain Layout
+Keine langwierigen Build-Prozesse
+\end_layout
+
+\begin_layout Plain Layout
+keine Syntaxerweiterungen wie TypeScript oder JSX
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row topspace="0.2cm">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Erfahrung
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+vorhanden
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+keine
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+keine
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Diese Entscheidung ist die komplizierteste.
+ Da mit jeder der drei Optionen unser Ziel erreicht werden kann.
+ Anhand der Fakten entscheiden wir uns gegen Angular.
+ Es müste neu gelernt werden und ist eher für größere Projekte als unseres
+ gedacht.
+ Somit behindert es eher den Prozess anstatt ihn zu unterstützen.
+ Weiterhin entscheiden wir uns auch gegen VueJS da es durch den Fokus auf
+ HTML nicht in unsere Hauptintension passt.
+ Damit entscheiden wir uns für React, da vorallem die oben gelisteten Hauptargum
+ente zu unserer Aufgabe und Projektgruppe passt.
+ Zusätlich ist keine weitere Einarbeitungszeit nötig und Erfahrung vorhanden.
+ 
+\end_layout
+
+\begin_layout Section
+Datenstruktur 
+\end_layout
+
+\begin_layout Standard
+Die in der Applikation verwendeten Daten werden in Strukturen gehalt.
+ Dazu zählen die Nutzerdaten Moduldaten und Anwendungsdaten.
+ Diese werden Im JSON-Format ("JavaScript Object Notation"gehalten und auf
+ Minio im Raw gespeichert.
+\end_layout
+
+\begin_layout Subsection
+Nutzerdaten 
+\end_layout
+
+\begin_layout Standard
+Die Nutzerdaten werden nach folgenden Prinzip gehalten
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=Java,numbers=left,basicstyle={\scriptsize\ttfamily},showstringspaces=false,tabsize=3,frame=single,xleftmargin=15pt"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+{             
+\end_layout
+
+\begin_layout Plain Layout
+
+	"username": "m",
+\end_layout
+
+\begin_layout Plain Layout
+
+    "email": "m",
+\end_layout
+
+\begin_layout Plain Layout
+
+    "age": "11",
+\end_layout
+
+\begin_layout Plain Layout
+
+    "Nutzergruppe": "Studen_User",
+\end_layout
+
+\begin_layout Plain Layout
+
+    "passwort":"423a4ca5d3447996de10c2e5f7e3fc38f0c4f8790f84...bd468c3e",
+\end_layout
+
+\begin_layout Plain Layout
+
+    "id": 6,
+\end_layout
+
+\begin_layout Plain Layout
+
+    "module":["100000","100001"]
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Hierbei ist der Username und die Id eindeutig.
+ Die anderen Parameter werden für die Anmeldung und die Zuweisung der Module
+ genutzt.
+\end_layout
+
+\begin_layout Standard
+Username, Email und Age, sowie Id werden genutzt um den Nutzer Anzumelden
+ und ihn als eigene Identität zu kennzeichnen.
+ Das Passswort ist zum anmelden gedacht.
+ Dabei ist zu beachten das aus Datensicherheitsgründen das Passwort gehasht
+ wird.
+ Hier mit dem sha512 Algortihmus.
+ Für die weiter Sicherheit wird das Passwort bevor es gehast wird mit einen
+ zusätlichen String konkateniert.
+ Das Passwort wird in dem Gebiet des Hashings dann als Pfeffer und der zusätlich
+e String als Salz bezeichnent.
+ Die Nutzergruppe gibt an um welche Art von Nutzer es sich handelt.
+ Dabei gibt es die Auswahl zwischen Student_User, Professor_User und Admin_User.
+ Je nach dem welche Art Nutzer angemeldet ist stehen zusätliche Funktionen
+ zur Verfügung.
+ Die Nutzergruppen sind hierarchisch geordnet was den Zugriff auf Funktionen
+ angeht.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Nutzergruppenhierachie.png
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Der letzte Parameter Modul wird genutz um festzuhalten in welchen Modulen
+ der jeweilige Nutzer sich angemeldet hat.
+ Dabei wird die Id des Moduls genuzt da diese eindeutig ist.
+ 
+\end_layout
+
+\begin_layout Subsection
+Studiengangdaten
+\end_layout
+
+\begin_layout Standard
+Die StudiengangDaten werden anch folgendem Prinzip gehalten
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=Java,numbers=left,basicstyle={\scriptsize\ttfamily},showstringspaces=false,tabsize=3,frame=single,xleftmargin=15pt"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+	"sgNummer": "I43",
+\end_layout
+
+\begin_layout Plain Layout
+
+	"sgName": "Medieninformatik",
+\end_layout
+
+\begin_layout Plain Layout
+
+	"sgRegelstudienzeit": "6",
+\end_layout
+
+\begin_layout Plain Layout
+
+	"sgCredits": 180,
+\end_layout
+
+\begin_layout Plain Layout
+
+	"module": [
+\end_layout
+
+\begin_layout Plain Layout
+
+                {
+\end_layout
+
+\begin_layout Plain Layout
+
+                   "modul":"Elektronik für Medieninformatiker",
+\end_layout
+
+\begin_layout Plain Layout
+
+                   "modulnummer":"E802",
+\end_layout
+
+\begin_layout Plain Layout
+
+                   "credits":3,
+\end_layout
+
+\begin_layout Plain Layout
+
+                   "semester":1
+\end_layout
+
+\begin_layout Plain Layout
+
+                },...
+\end_layout
+
+\begin_layout Plain Layout
+
+			  ]
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Moduldaten 
+\end_layout
+
+\begin_layout Standard
+Die Moduldaten werden nach folgenden Prinzip gehalten
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=Java,numbers=left,basicstyle={\scriptsize\ttfamily},showstringspaces=false,tabsize=3,frame=single,xleftmargin=15pt"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+{             
+\end_layout
+
+\begin_layout Plain Layout
+
+   "modulId": "100000",
+\end_layout
+
+\begin_layout Plain Layout
+
+   "modulName": "Test",
+\end_layout
+
+\begin_layout Plain Layout
+
+   "leader": "Prof.Prof",
+\end_layout
+
+\begin_layout Plain Layout
+
+   "leaderMail": "prof.p@gmail.com",
+\end_layout
+
+\begin_layout Plain Layout
+
+   "usedModules": [                 
+\end_layout
+
+\begin_layout Plain Layout
+
+					...
+\end_layout
+
+\begin_layout Plain Layout
+
+            	  ],
+\end_layout
+
+\begin_layout Plain Layout
+
+    "deadlines": [                 
+\end_layout
+
+\begin_layout Plain Layout
+
+					...
+\end_layout
+
+\begin_layout Plain Layout
+
+ 			     ],
+\end_layout
+
+\begin_layout Plain Layout
+
+	"news": [                 
+\end_layout
+
+\begin_layout Plain Layout
+
+			...
+\end_layout
+
+\begin_layout Plain Layout
+
+			],
+\end_layout
+
+\begin_layout Plain Layout
+
+	"schedule": [                 
+\end_layout
+
+\begin_layout Plain Layout
+
+				...
+\end_layout
+
+\begin_layout Plain Layout
+
+				],
+\end_layout
+
+\begin_layout Plain Layout
+
+	"grades": [
+\end_layout
+
+\begin_layout Plain Layout
+
+				...
+\end_layout
+
+\begin_layout Plain Layout
+
+	  		]
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Die Parameter ModulId und ModulName dienen der Identifikation des Moduls.
+ Leader und leaderMail sind die Daten des Erstellers.
+ Der Ersteller ist ein Nutzer vom Nutzertyp Professor_User oder Admin_User.
+ Die restlichen Daten sind zur Spezifikation des Moduls.
+\end_layout
+
+\begin_layout Standard
+Dort werden verschiedene Sachverhalte festgehalten.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=Java,numbers=left,basicstyle={\scriptsize\ttfamily},showstringspaces=false,tabsize=3,frame=single,xleftmargin=15pt"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+"usedModules": [                 
+\end_layout
+
+\begin_layout Plain Layout
+
+					{
+\end_layout
+
+\begin_layout Plain Layout
+
+						
+\begin_inset Quotes gld
+\end_inset
+
+id": "0",
+\end_layout
+
+\begin_layout Plain Layout
+
+                        "name":"Programm1",
+\end_layout
+
+\begin_layout Plain Layout
+
+                        "spezificationNumber": "1111111"
+\end_layout
+
+\begin_layout Plain Layout
+
+                    },
+\end_layout
+
+\begin_layout Plain Layout
+
+           		 {
+\end_layout
+
+\begin_layout Plain Layout
+
+                	    "id": "1",
+\end_layout
+
+\begin_layout Plain Layout
+
+                   	 "name": "Programm2",
+\end_layout
+
+\begin_layout Plain Layout
+
+                  	  "spezificationNumber": "1111110"
+\end_layout
+
+\begin_layout Plain Layout
+
+                	}
+\end_layout
+
+\begin_layout Plain Layout
+
+            	]
+\end_layout
+
+\end_inset
+
+Der Parameter "usedModules" wird verwendet um verschiedene Anwendungen im
+ Modul zu speichern.
+ Diese können auch leer sein.
+ Die module werden wieder als neue Objekte gespeichert bestehend aus id,
+ name, und spezificationNumber.
+ Die Id und der Name sind zum identfizieren der Anwendung und die Spezifikations
+nummer um die Ausprägung dazustellen.
+ Die Ausprägung kann gesehen werden wie ein Speicherstand welcher geladen
+ und gespeichert werden kann.
+ Dies Erfolgt dann über ein extra Menü.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=Java,numbers=left,basicstyle={\scriptsize\ttfamily},showstringspaces=false,tabsize=3,frame=single,xleftmargin=15pt"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+"deadlines": [                 
+\end_layout
+
+\begin_layout Plain Layout
+
+					{
+\end_layout
+
+\begin_layout Plain Layout
+
+					  "name": "abgabe1",
+\end_layout
+
+\begin_layout Plain Layout
+
+					  "doDatum": "2012-07-05T18:30:32.360Z"
+\end_layout
+
+\begin_layout Plain Layout
+
+     			   },
+\end_layout
+
+\begin_layout Plain Layout
+
+                	{
+\end_layout
+
+\begin_layout Plain Layout
+
+		              "name": "abgabe2",
+\end_layout
+
+\begin_layout Plain Layout
+
+		              "doDatum": "2012-08-05T18:30:32.360Z"
+\end_layout
+
+\begin_layout Plain Layout
+
+   			     }
+\end_layout
+
+\begin_layout Plain Layout
+
+ 			     ]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Der Parameter "deadlines" wird genutz um Abgaben im Modul dazustellen.
+ Diese können dann dem Nutzer direk angezeigt werden sowie im Modul selbst.
+ Es werden hier wieder einzelne Objekte gespeichert.
+ Diese verfügen über zwei weiter Parameter:
+\end_layout
+
+\begin_layout Itemize
+name: zum Kennzeichnen um welche Abgabe es sich handelt
+\end_layout
+
+\begin_layout Itemize
+doDatum: zum Kennzeichnen des Abgabedatums
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=Java,numbers=left,basicstyle={\scriptsize\ttfamily},showstringspaces=false,tabsize=3,frame=single,xleftmargin=15pt"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+"news": [                 
+\end_layout
+
+\begin_layout Plain Layout
+
+			{                     
+\end_layout
+
+\begin_layout Plain Layout
+
+				"name": "Zwischneprüfung",
+\end_layout
+
+\begin_layout Plain Layout
+
+                "expiryDate": "2012-07-05T18:30:32.360Z"
+\end_layout
+
+\begin_layout Plain Layout
+
+            }
+\end_layout
+
+\begin_layout Plain Layout
+
+ 		]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Der Parameter "news" wird genutzt um kurzfristige Änderungen/Informationsen
+ vom Kursleiter darzustellen.
+ Diese können dann dem Nutzer direk angezeigt werden sowie im Modul selbst.
+ Dieser verfügt ebenfalls über zwei weiter Parameter:
+\end_layout
+
+\begin_layout Itemize
+name: Name/Beschreibung der Information
+\end_layout
+
+\begin_layout Itemize
+expiryDate: zum Einstellen wie lange Die Information angezeigt wird.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=Java,numbers=left,basicstyle={\scriptsize\ttfamily},showstringspaces=false,tabsize=3,frame=single,xleftmargin=15pt"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+"schedule": [
+\end_layout
+
+\begin_layout Plain Layout
+
+             {
+\end_layout
+
+\begin_layout Plain Layout
+
+              	"room": "Z100",
+\end_layout
+
+\begin_layout Plain Layout
+
+             	 "time": "9:20-10:50",
+\end_layout
+
+\begin_layout Plain Layout
+
+             	 "dof" : "Montag",
+\end_layout
+
+\begin_layout Plain Layout
+
+             	 "week": "1",
+\end_layout
+
+\begin_layout Plain Layout
+
+             	 "type": "VL"
+\end_layout
+
+\begin_layout Plain Layout
+
+             }
+\end_layout
+
+\begin_layout Plain Layout
+
+			]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Der Parameter "schedule" wird genutzt um den Wochenplan darszutellen.
+ Hier wird als Objekt jede Unterrichteinheit festgelegt.
+ Der Parameter verfügt über folgende Objekt-Parameter:
+\end_layout
+
+\begin_layout Itemize
+room: Raum wo die Einheit stattfindet
+\end_layout
+
+\begin_layout Itemize
+time: Zeitraum der Einheit
+\end_layout
+
+\begin_layout Itemize
+dof: Wochentag
+\end_layout
+
+\begin_layout Itemize
+week: Gerade und ungerade Woche bzw.
+ AB-Woche 
+\end_layout
+
+\begin_layout Itemize
+type: Unterscheidung in VL-Vorlesung, ÜB-Übung und Prak-Praktikum
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=Java,numbers=left,basicstyle={\scriptsize\ttfamily},showstringspaces=false,tabsize=3,frame=single,xleftmargin=15pt"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+"grades": [
+\end_layout
+
+\begin_layout Plain Layout
+
+             {
+\end_layout
+
+\begin_layout Plain Layout
+
+              	"name": "abgabe2",
+\end_layout
+
+\begin_layout Plain Layout
+
+             	 "datum": "2012-07-05T18:30:32.360Z",
+\end_layout
+
+\begin_layout Plain Layout
+
+             	 "grade": "1",
+\end_layout
+
+\begin_layout Plain Layout
+
+             	 "studentID": "1"
+\end_layout
+
+\begin_layout Plain Layout
+
+             }
+\end_layout
+
+\begin_layout Plain Layout
+
+			]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Der Parameter "Grades" wird genutzt um die Noten in einem Modul zu speichern.
+ Diese können dann gefiltert dem Nutzer direk angezeigt werden sowie ebenfalls
+ gefiltert im Modul selbst.
+ GEfiletert steht in diesem Zusammenhang für einem Nutzer werden nur seine
+ eigenen Noten angezeigt.
+ Der Parameter verfügt über folgende Objekt-Parameter:
+\end_layout
+
+\begin_layout Itemize
+name: Zur Angabe der Prüfungsnummer und Prüfungsname
+\end_layout
+
+\begin_layout Itemize
+datum: Zur Angabe des Prüfungsdatums
+\end_layout
+
+\begin_layout Itemize
+grade: Note des Nutzers
+\end_layout
+
+\begin_layout Itemize
+id: Nutzer-ID zur Identifikations des geprüften Nutzers.
+ 
+\end_layout
+
+\end_body
+\end_document

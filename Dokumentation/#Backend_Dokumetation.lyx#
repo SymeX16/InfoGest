@@ -1117,5 +1117,748 @@ ente zu unserer Aufgabe und Projektgruppe passt.
  
 \end_layout
 
+\begin_layout Section
+Datenstruktur 
+\end_layout
+
+\begin_layout Standard
+Die in der Applikation verwendeten Daten werden in Strukturen gehalt.
+ Dazu zählen die Nutzerdaten Moduldaten und Anwendungsdaten.
+ Diese werden Im JSON-Format ("JavaScript Object Notation"gehalten und auf
+ Minio im Raw gespeichert.
+\end_layout
+
+\begin_layout Subsection
+Nutzerdaten 
+\end_layout
+
+\begin_layout Standard
+Die Nutzerdaten werden nach folgenden Prinzip gehalten
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=Java,numbers=left,basicstyle={\scriptsize\ttfamily},showstringspaces=false,tabsize=3,frame=single,xleftmargin=15pt"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+{             
+\end_layout
+
+\begin_layout Plain Layout
+
+	"username": "m",
+\end_layout
+
+\begin_layout Plain Layout
+
+    "email": "m",
+\end_layout
+
+\begin_layout Plain Layout
+
+    "age": "11",
+\end_layout
+
+\begin_layout Plain Layout
+
+    "Nutzergruppe": "Studen_User",
+\end_layout
+
+\begin_layout Plain Layout
+
+    "passwort":"423a4ca5d3447996de10c2e5f7e3fc38f0c4f8790f84...bd468c3e",
+\end_layout
+
+\begin_layout Plain Layout
+
+    "id": 6,
+\end_layout
+
+\begin_layout Plain Layout
+
+    "module":["100000","100001"]
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Hierbei ist der Username und die Id eindeutig.
+ Die anderen Parameter werden für die Anmeldung und die Zuweisung der Module
+ genutzt.
+\end_layout
+
+\begin_layout Standard
+Username, Email und Age, sowie Id werden genutzt um den Nutzer Anzumelden
+ und ihn als eigene Identität zu kennzeichnen.
+ Das Passswort ist zum anmelden gedacht.
+ Dabei ist zu beachten das aus Datensicherheitsgründen das Passwort gehasht
+ wird.
+ Hier mit dem sha512 Algortihmus.
+ Für die weiter Sicherheit wird das Passwort bevor es gehast wird mit einen
+ zusätlichen String konkateniert.
+ Das Passwort wird in dem Gebiet des Hashings dann als Pfeffer und der zusätlich
+e String als Salz bezeichnent.
+ Die Nutzergruppe gibt an um welche Art von Nutzer es sich handelt.
+ Dabei gibt es die Auswahl zwischen Student_User, Professor_User und Admin_User.
+ Je nach dem welche Art Nutzer angemeldet ist stehen zusätliche Funktionen
+ zur Verfügung.
+ Die Nutzergruppen sind hierarchisch geordnet was den Zugriff auf Funktionen
+ angeht.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Nutzergruppenhierachie.png
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Der letzte Parameter Modul wird genutz um festzuhalten in welchen Modulen
+ der jeweilige Nutzer sich angemeldet hat.
+ Dabei wird die Id des Moduls genuzt da diese eindeutig ist.
+ 
+\end_layout
+
+\begin_layout Subsection
+Studiengangdaten
+\end_layout
+
+\begin_layout Standard
+Die StudiengangDaten werden anch folgendem Prinzip gehalten:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=Java,numbers=left,basicstyle={\scriptsize\ttfamily},showstringspaces=false,tabsize=3,frame=single,xleftmargin=15pt"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+	"sgNummer": "I43",
+\end_layout
+
+\begin_layout Plain Layout
+
+	"sgName": "Medieninformatik",
+\end_layout
+
+\begin_layout Plain Layout
+
+	"sgRegelstudienzeit": "6",
+\end_layout
+
+\begin_layout Plain Layout
+
+	"sgCredits": 180,
+\end_layout
+
+\begin_layout Plain Layout
+
+	"module": [
+\end_layout
+
+\begin_layout Plain Layout
+
+               ...
+\end_layout
+
+\begin_layout Plain Layout
+
+			  ]
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Die Ersten Parameter dienen der Identifikation des Studiengangs.
+ Dazu gehören die Studiengang-Nummer (sgNummer), der Name des Studiengangs
+ (sgName), die Regelstudienzeit (sgRegelstudienzeit) und die zu erreichenden
+ Credits (sgCredits).
+ Danach folgen die Auflistung der Module wie folgt:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=Java,numbers=left,basicstyle={\scriptsize\ttfamily},showstringspaces=false,tabsize=3,frame=single,xleftmargin=15pt"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+   "modul":"Elektronik für Medieninformatiker",
+\end_layout
+
+\begin_layout Plain Layout
+
+   "modulnummer":"E802",
+\end_layout
+
+\begin_layout Plain Layout
+
+   "credits":3,
+\end_layout
+
+\begin_layout Plain Layout
+
+   "semester":1
+\end_layout
+
+\begin_layout Plain Layout
+
+},
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Moduldaten 
+\end_layout
+
+\begin_layout Standard
+Die Moduldaten werden nach folgenden Prinzip gehalten
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=Java,numbers=left,basicstyle={\scriptsize\ttfamily},showstringspaces=false,tabsize=3,frame=single,xleftmargin=15pt"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+{             
+\end_layout
+
+\begin_layout Plain Layout
+
+   "modulId": "100000",
+\end_layout
+
+\begin_layout Plain Layout
+
+   "modulName": "Test",
+\end_layout
+
+\begin_layout Plain Layout
+
+   "leader": "Prof.Prof",
+\end_layout
+
+\begin_layout Plain Layout
+
+   "leaderMail": "prof.p@gmail.com",
+\end_layout
+
+\begin_layout Plain Layout
+
+   "usedModules": [                 
+\end_layout
+
+\begin_layout Plain Layout
+
+					...
+\end_layout
+
+\begin_layout Plain Layout
+
+            	  ],
+\end_layout
+
+\begin_layout Plain Layout
+
+    "deadlines": [                 
+\end_layout
+
+\begin_layout Plain Layout
+
+					...
+\end_layout
+
+\begin_layout Plain Layout
+
+ 			     ],
+\end_layout
+
+\begin_layout Plain Layout
+
+	"news": [                 
+\end_layout
+
+\begin_layout Plain Layout
+
+			...
+\end_layout
+
+\begin_layout Plain Layout
+
+			],
+\end_layout
+
+\begin_layout Plain Layout
+
+	"schedule": [                 
+\end_layout
+
+\begin_layout Plain Layout
+
+				...
+\end_layout
+
+\begin_layout Plain Layout
+
+				],
+\end_layout
+
+\begin_layout Plain Layout
+
+	"grades": [
+\end_layout
+
+\begin_layout Plain Layout
+
+				...
+\end_layout
+
+\begin_layout Plain Layout
+
+	  		]
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Die Parameter ModulId und ModulName dienen der Identifikation des Moduls.
+ Leader und leaderMail sind die Daten des Erstellers.
+ Der Ersteller ist ein Nutzer vom Nutzertyp Professor_User oder Admin_User.
+ Die restlichen Daten sind zur Spezifikation des Moduls.
+\end_layout
+
+\begin_layout Standard
+Dort werden verschiedene Sachverhalte festgehalten.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=Java,numbers=left,basicstyle={\scriptsize\ttfamily},showstringspaces=false,tabsize=3,frame=single,xleftmargin=15pt"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+"usedModules": [                 
+\end_layout
+
+\begin_layout Plain Layout
+
+					{
+\end_layout
+
+\begin_layout Plain Layout
+
+						
+\begin_inset Quotes gld
+\end_inset
+
+id": "0",
+\end_layout
+
+\begin_layout Plain Layout
+
+                        "name":"Programm1",
+\end_layout
+
+\begin_layout Plain Layout
+
+                        "spezificationNumber": "1111111"
+\end_layout
+
+\begin_layout Plain Layout
+
+                    },
+\end_layout
+
+\begin_layout Plain Layout
+
+           		 {
+\end_layout
+
+\begin_layout Plain Layout
+
+                	    "id": "1",
+\end_layout
+
+\begin_layout Plain Layout
+
+                   	 "name": "Programm2",
+\end_layout
+
+\begin_layout Plain Layout
+
+                  	  "spezificationNumber": "1111110"
+\end_layout
+
+\begin_layout Plain Layout
+
+                	}
+\end_layout
+
+\begin_layout Plain Layout
+
+            	]
+\end_layout
+
+\end_inset
+
+Der Parameter "usedModules" wird verwendet um verschiedene Anwendungen im
+ Modul zu speichern.
+ Diese können auch leer sein.
+ Die module werden wieder als neue Objekte gespeichert bestehend aus id,
+ name, und spezificationNumber.
+ Die Id und der Name sind zum identfizieren der Anwendung und die Spezifikations
+nummer um die Ausprägung dazustellen.
+ Die Ausprägung kann gesehen werden wie ein Speicherstand welcher geladen
+ und gespeichert werden kann.
+ Dies Erfolgt dann über ein extra Menü.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=Java,numbers=left,basicstyle={\scriptsize\ttfamily},showstringspaces=false,tabsize=3,frame=single,xleftmargin=15pt"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+"deadlines": [                 
+\end_layout
+
+\begin_layout Plain Layout
+
+					{
+\end_layout
+
+\begin_layout Plain Layout
+
+					  "name": "abgabe1",
+\end_layout
+
+\begin_layout Plain Layout
+
+					  "doDatum": "2012-07-05T18:30:32.360Z"
+\end_layout
+
+\begin_layout Plain Layout
+
+     			   },
+\end_layout
+
+\begin_layout Plain Layout
+
+                	{
+\end_layout
+
+\begin_layout Plain Layout
+
+		              "name": "abgabe2",
+\end_layout
+
+\begin_layout Plain Layout
+
+		              "doDatum": "2012-08-05T18:30:32.360Z"
+\end_layout
+
+\begin_layout Plain Layout
+
+   			     }
+\end_layout
+
+\begin_layout Plain Layout
+
+ 			     ]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Der Parameter "deadlines" wird genutz um Abgaben im Modul dazustellen.
+ Diese können dann dem Nutzer direk angezeigt werden sowie im Modul selbst.
+ Es werden hier wieder einzelne Objekte gespeichert.
+ Diese verfügen über zwei weiter Parameter:
+\end_layout
+
+\begin_layout Itemize
+name: zum Kennzeichnen um welche Abgabe es sich handelt
+\end_layout
+
+\begin_layout Itemize
+doDatum: zum Kennzeichnen des Abgabedatums
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=Java,numbers=left,basicstyle={\scriptsize\ttfamily},showstringspaces=false,tabsize=3,frame=single,xleftmargin=15pt"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+"news": [                 
+\end_layout
+
+\begin_layout Plain Layout
+
+			{                     
+\end_layout
+
+\begin_layout Plain Layout
+
+				"name": "Zwischneprüfung",
+\end_layout
+
+\begin_layout Plain Layout
+
+                "expiryDate": "2012-07-05T18:30:32.360Z"
+\end_layout
+
+\begin_layout Plain Layout
+
+            }
+\end_layout
+
+\begin_layout Plain Layout
+
+ 		]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Der Parameter "news" wird genutzt um kurzfristige Änderungen/Informationsen
+ vom Kursleiter darzustellen.
+ Diese können dann dem Nutzer direk angezeigt werden sowie im Modul selbst.
+ Dieser verfügt ebenfalls über zwei weiter Parameter:
+\end_layout
+
+\begin_layout Itemize
+name: Name/Beschreibung der Information
+\end_layout
+
+\begin_layout Itemize
+expiryDate: zum Einstellen wie lange Die Information angezeigt wird.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=Java,numbers=left,basicstyle={\scriptsize\ttfamily},showstringspaces=false,tabsize=3,frame=single,xleftmargin=15pt"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+"schedule": [
+\end_layout
+
+\begin_layout Plain Layout
+
+             {
+\end_layout
+
+\begin_layout Plain Layout
+
+              	"room": "Z100",
+\end_layout
+
+\begin_layout Plain Layout
+
+             	 "time": "9:20-10:50",
+\end_layout
+
+\begin_layout Plain Layout
+
+             	 "dof" : "Montag",
+\end_layout
+
+\begin_layout Plain Layout
+
+             	 "week": "1",
+\end_layout
+
+\begin_layout Plain Layout
+
+             	 "type": "VL"
+\end_layout
+
+\begin_layout Plain Layout
+
+             }
+\end_layout
+
+\begin_layout Plain Layout
+
+			]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Der Parameter "schedule" wird genutzt um den Wochenplan darszutellen.
+ Hier wird als Objekt jede Unterrichteinheit festgelegt.
+ Der Parameter verfügt über folgende Objekt-Parameter:
+\end_layout
+
+\begin_layout Itemize
+room: Raum wo die Einheit stattfindet
+\end_layout
+
+\begin_layout Itemize
+time: Zeitraum der Einheit
+\end_layout
+
+\begin_layout Itemize
+dof: Wochentag
+\end_layout
+
+\begin_layout Itemize
+week: Gerade und ungerade Woche bzw.
+ AB-Woche 
+\end_layout
+
+\begin_layout Itemize
+type: Unterscheidung in VL-Vorlesung, ÜB-Übung und Prak-Praktikum
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=Java,numbers=left,basicstyle={\scriptsize\ttfamily},showstringspaces=false,tabsize=3,frame=single,xleftmargin=15pt"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+"grades": [
+\end_layout
+
+\begin_layout Plain Layout
+
+             {
+\end_layout
+
+\begin_layout Plain Layout
+
+              	"name": "abgabe2",
+\end_layout
+
+\begin_layout Plain Layout
+
+             	 "datum": "2012-07-05T18:30:32.360Z",
+\end_layout
+
+\begin_layout Plain Layout
+
+             	 "grade": "1",
+\end_layout
+
+\begin_layout Plain Layout
+
+             	 "studentID": "1"
+\end_layout
+
+\begin_layout Plain Layout
+
+             }
+\end_layout
+
+\begin_layout Plain Layout
+
+			]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Der Parameter "Grades" wird genutzt um die Noten in einem Modul zu speichern.
+ Diese können dann gefiltert dem Nutzer direk angezeigt werden sowie ebenfalls
+ gefiltert im Modul selbst.
+ GEfiletert steht in diesem Zusammenhang für einem Nutzer werden nur seine
+ eigenen Noten angezeigt.
+ Der Parameter verfügt über folgende Objekt-Parameter:
+\end_layout
+
+\begin_layout Itemize
+name: Zur Angabe der Prüfungsnummer und Prüfungsname
+\end_layout
+
+\begin_layout Itemize
+datum: Zur Angabe des Prüfungsdatums
+\end_layout
+
+\begin_layout Itemize
+grade: Note des Nutzers
+\end_layout
+
+\begin_layout Itemize
+id: Nutzer-ID zur Identifikations des geprüften Nutzers.
+ 
+\end_layout
+
 \end_body
 \end_document
