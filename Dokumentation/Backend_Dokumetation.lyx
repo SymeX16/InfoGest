@@ -14,9 +14,9 @@ customHeadersFooters
 \language_package auto
 \inputencoding auto
 \fontencoding global
-\font_roman "default" "Comfortaa"
-\font_sans "default" "Comfortaa"
-\font_typewriter "default" "Comfortaa"
+\font_roman "default" "Roboto"
+\font_sans "default" "Roboto"
+\font_typewriter "default" "Roboto"
 \font_math "auto" "auto"
 \font_default_family default
 \use_non_tex_fonts true
@@ -93,7 +93,7 @@ Entwicklung des Backends
 \end_layout
 
 \begin_layout Date
-Stand: 03/02/22
+Stand: 16/05/22
 \end_layout
 
 \begin_layout Standard
@@ -447,15 +447,14 @@ Keine
 \end_layout
 
 \begin_layout Standard
-Die Wahl wird hier von unserem Einsatz-Specktrum bestimmt.
- Damit entscheiden wir uns gegen Mongo DB.
- Extra eine solche Datenbank aufzusetzen wäre zu viel Aufwand und die Funktional
-ität von MongoDB zu mächtig für unsere Zwecke.
- Es wäre Unverhältnismäßig.
- Somit werde wir, Wie sich oben aus der Tabelle ergibt, alle Daten in Minio
- Ablegen und Speichern.
- Express nutzen wir dann für alle zusätzlichen Funktionalitäten welche nicht
- auf Minio umgesetzt werden kann.
+Die Wahl wird hier nur zum Teil von unserem Einsatz-Specktrum bestimmt.
+ Damit entscheiden wir uns für Mongo DB, da dies die Speicherung von XApi
+ Statements direkt unterstützt.
+ Eine solche Datenbank aufzusetzen ist extra Aufwand aber die Funktionalität
+ von MongoDB passt dafür perfekt zu unserem Zwecke.
+ Alle anderen Daten werden in Minio Ablegen und Speichern.
+ Express nutzen wir in diesem Kontext nicht, da es nicht weiter nötig ist
+ und alle Funktionalitäten die wir benötigen bereits vorhanden sind.
  
 \end_layout
 

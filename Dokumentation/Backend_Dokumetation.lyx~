@@ -1236,11 +1236,11 @@ Der letzte Parameter Modul wird genutz um festzuhalten in welchen Modulen
 \end_layout
 
 \begin_layout Subsection
-Studiengangdaten
+Studiengang-Daten
 \end_layout
 
 \begin_layout Standard
-Die StudiengangDaten werden anch folgendem Prinzip gehalten
+Die Studiengang-Daten werden anch folgendem Prinzip gehalten:
 \end_layout
 
 \begin_layout Standard
@@ -1281,32 +1281,7 @@ status open
 
 \begin_layout Plain Layout
 
-                {
-\end_layout
-
-\begin_layout Plain Layout
-
-                   "modul":"Elektronik für Medieninformatiker",
-\end_layout
-
-\begin_layout Plain Layout
-
-                   "modulnummer":"E802",
-\end_layout
-
-\begin_layout Plain Layout
-
-                   "credits":3,
-\end_layout
-
-\begin_layout Plain Layout
-
-                   "semester":1
-\end_layout
-
-\begin_layout Plain Layout
-
-                },...
+               ...
 \end_layout
 
 \begin_layout Plain Layout
@@ -1324,12 +1299,81 @@ status open
 
 \end_layout
 
+\begin_layout Standard
+Die Ersten Parameter dienen der Identifikation des Studiengangs.
+ Dazu gehören die Studiengang-Nummer (sgNummer), der Name des Studiengangs
+ (sgName), die Regelstudienzeit (sgRegelstudienzeit) und die zu erreichenden
+ Credits (sgCredits).
+ Danach folgen die Auflistung der Module wie folgt:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=Java,numbers=left,basicstyle={\scriptsize\ttfamily},showstringspaces=false,tabsize=3,frame=single,xleftmargin=15pt"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+   "modul":"Elektronik für Medieninformatiker",
+\end_layout
+
+\begin_layout Plain Layout
+
+   "modulnummer":"E802",
+\end_layout
+
+\begin_layout Plain Layout
+
+   "credits":3,
+\end_layout
+
+\begin_layout Plain Layout
+
+   "semester":1
+\end_layout
+
+\begin_layout Plain Layout
+
+},
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Für jedes Modul werden vier Parameter gespeichert.
+\end_layout
+
+\begin_layout Itemize
+modul: Name des Moduls
+\end_layout
+
+\begin_layout Itemize
+modulnummer: Identifikationsnummer des Moduls
+\end_layout
+
+\begin_layout Itemize
+credits: Anzahl an zu erhaltenden Credits bei Abschluss
+\end_layout
+
+\begin_layout Itemize
+semester: angedachte Stelle nach Studienablaufplan
+\end_layout
+
 \begin_layout Subsection
 Moduldaten 
 \end_layout
 
 \begin_layout Standard
-Die Moduldaten werden nach folgenden Prinzip gehalten
+Die Moduldaten werden nach folgenden Prinzip gehalten:
 \end_layout
 
 \begin_layout Standard
