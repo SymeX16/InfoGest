@@ -1117,6 +1117,160 @@ ente zu unserer Aufgabe und Projektgruppe passt.
 \end_layout
 
 \begin_layout Section
+UI-Frameworks
+\end_layout
+
+\begin_layout Standard
+Die UI (UserInterface) einer Applikation ist die direkte Schnittstelle zwischen
+ dem Nutzer und der Anwendung.
+ Dementsprechen ist eine gute, intuitive UI (oder auch GUI ) ein muss.
+ Aber eine komplett UI selbst zu Gestalten und Umzusetzen ist schwer und
+ kostet Zeit.
+ Deswegen wird in Folge das Thema UI-Frameworks näher beleuchtet.
+\end_layout
+
+\begin_layout Subsection
+Was und Wofür sind UI-Frameworks ?
+\end_layout
+
+\begin_layout Standard
+Solch ein Framework ist im Allgemeinen eine Software-Suite, die dem Benutzer
+ bereits vorgefertigte Schnittstellen präsentiert.
+ Diese dienen dazu eigenen UI-Komponenten zu erstellen oder bereits fertige
+ Elemente selbst zu modifizieren.
+ Framework bezieht sich auf APIs und Dokumentationen, durch diese ist beschriebe
+n wie die genannten Vorgänge ausführbar sind.
+ Dabei werden sie meist in der Webentwicklung genutz und bassieren so vollständi
+g auf CSS, Javascript und HTML.
+ Durch sie ist es möglich schnell und flexibel eigenen UIs mit wenig Vorwissen
+ zu erstellen.
+ 
+\end_layout
+
+\begin_layout Subsection
+Warum werden sie genutzt ?
+\end_layout
+
+\begin_layout Standard
+Die Nutzung eines UI-Frameworks bringt einige Vorteile mit sich.
+ Zum einen kann man einfach und schnell Oberflächen erstellen.
+ Zum anderen ist der Aspekt der Wiederverwendbarkeit und Einheitlichkeit
+ gegeben .
+ Frameworks bieten meist ein einheitliches Set an UI-Elementen an welche
+ harmonisch miteinander genuzt werden können.
+ dazu kommt das der Stil somit auf mehrern Seiten (Produkten, Aplikationen,...
+ ) ohne Probleme wiederverwendet werden kann.
+ Was einem eine eigenen Erstellung ersparrt.
+ 
+\end_layout
+
+\begin_layout Subsection
+Wíe werden sie installiert
+\end_layout
+
+\begin_layout Standard
+Die meisten Frameworks wie Angular Material, Bootstrap, NGX Bootstrap, DHTMLX,
+ Webix, Material UI, Evergreen oder Rebass konnen simple per NPM oder YARN
+ installiert werden.
+ Was eine simple und schnelle Anwendung bedeutet.
+ Ein paar von den gennanten (zb.
+ Bootstrap) können auch als Programm installiert werden.
+\end_layout
+
+\begin_layout Subsection
+Unserer Entscheidung
+\end_layout
+
+\begin_layout Standard
+Wir haben uns für Material UI entschieden.
+ Es gibt uns genügen Freiheit um unsere Ideen umzusetzen.
+ Dazu kommt, dass bereits jemand Erfahrung mit dem Umgang hat und es eine
+ Figma-Integrations gibt.
+ Die vielen bereitgestellten Komponenten ermöglichen einen schnelles und
+ flexibles Arbeiten.
+ 
+\end_layout
+
+\begin_layout Standard
+Wir nutzen folgende Komponenten: accordion, app-bar, card, drawer, list,
+ list-item, paper, step, stepper.
+\end_layout
+
+\begin_layout Subsubsection
+Beispiel der Erzeugung (Anhand App-Bar)
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=Java,numbers=left,basicstyle={\scriptsize\ttfamily},showstringspaces=false,tabsize=3,frame=single,xleftmargin=15pt"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+import * as React from 'react'; 
+\end_layout
+
+\begin_layout Plain Layout
+
+import AppBar from '@mui/material/AppBar';
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+export default function ButtonAppBar() {
+\end_layout
+
+\begin_layout Plain Layout
+
+	  return (     
+\end_layout
+
+\begin_layout Plain Layout
+
+	<Box sx={{ flexGrow: 1 }}>
+\end_layout
+
+\begin_layout Plain Layout
+
+      <AppBar position="static">
+\end_layout
+
+\begin_layout Plain Layout
+
+        <p>NEWS</p>	
+\end_layout
+
+\begin_layout Plain Layout
+
+		<button color="inherit">Login</button>
+\end_layout
+
+\begin_layout Plain Layout
+
+      </AppBar>
+\end_layout
+
+\begin_layout Plain Layout
+
+	</Box>   ); 
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
 Datenstruktur 
 \end_layout
 
