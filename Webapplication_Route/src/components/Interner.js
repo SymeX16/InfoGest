@@ -93,12 +93,13 @@ export default function Interner({ userNick, userId,setModul}) {
                 dataStream.on("end", function () {
                   var m = JSON.parse(arr2.toString()).module;
                   for (var c = 0; c < m.length; c++) {
+                   try{
                     if (use.module.indexOf(m[c].modulId) > -1) {
                       console.log(m[c].modulId + m[c].modulName)
                       var tmp = moduls;
                       tmp.push(m[c]);
                       setModuls(tmp);
-                    }
+                    }}catch{console.log("leeres Modul")}
                   }
                 });
               }
@@ -133,7 +134,7 @@ export default function Interner({ userNick, userId,setModul}) {
           <h1>Interner bereich von {userNick}</h1>
           <button onClick={back}></button>
         <div>
-        <Studienablaufplan></Studienablaufplan>
+        <Studienablaufplan  modulButtonHandler ={modulButtonHandler}></Studienablaufplan>
         </div>
 
           <div className="deadlinesContainer">

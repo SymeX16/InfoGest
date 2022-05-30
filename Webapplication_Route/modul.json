@@ -1,8 +1,8 @@
 {
     "module": [
         {
-            "modulId": "100000",
-            "modulName": "Test",
+            "modulId": "E802",
+            "modulName": "Elektronik für Medieninformatiker",
             "leader": "Prof.Prof",
             "leaderMail": "prof.p@gmail.com",
             "usedModules": [
@@ -72,8 +72,8 @@
             ]
         },
         {
-            "modulId": "100001",
-            "modulName": "Test2",
+            "modulId": "I110",
+            "modulName": "Grundlagen der Informatik I",
             "leader": "Prof.Prof",
             "leaderMail": "prof.p@gmail.com",
             "usedModules": [
@@ -146,8 +146,8 @@
                 }
             ]
         },{
-            "modulId": "100011",
-            "modulName": "unsichtbar",
+            "modulId": "I121",
+            "modulName": "Programmierung II",
             "leader": "Prof.Prof",
             "leaderMail": "prof.p@gmail.com",
             "usedModules": [

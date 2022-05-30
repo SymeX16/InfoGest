@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function StudienModul({value}) {
+export default function StudienModul({value,modulButtonHandler}) {
     var Minio = require("minio");
     var minioClient = new Minio.Client({
       endPoint: "141.56.132.18",
@@ -17,17 +17,24 @@ export default function StudienModul({value}) {
         "studiengang.json",
         function (err, dataStream) {
           if (err) {
-            return console.log(err);
+             console.log(err);
+             return start()
           }
           dataStream.on("data", function (chunk) {
             arr.push(chunk);
           });
           dataStream.on("end", function () {
-            var all=JSON.parse(arr.toString()).studiengang[0]  
+            try {
+              var all=JSON.parse(arr.toString()).studiengang[0] 
+            } catch (err) {
+             return start();
+            }
+             
+            
             all.module.map((mod)=>{
                 
-                if(`${mod.modulnummer}`===`${value}`){
-                    setModName(mod.modul)
+                if(`${mod.modulnummer}`===`${value}`){ 
+                  setModName(mod.modul)
                     setModCredit(mod.credits)
                 }
             })
@@ -43,11 +50,12 @@ export default function StudienModul({value}) {
        console.log(modName)
    }
 
+   
     const [modName,setModName]=React.useState("")
     const [modCredit,setModCredit]=React.useState("")
   
   
     if(value!==null){return (
-    <div >{`${modName}`}<br/>Credits:{` ${modCredit}`}</div>
+    <div onClick={(e)=>{ modulButtonHandler(value);}} >{`${modName}`}<br/>Credits:{` ${modCredit}`}</div>
   )}else{return (null)}
 }

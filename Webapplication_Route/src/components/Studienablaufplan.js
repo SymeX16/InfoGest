@@ -5,7 +5,7 @@ import { DataGrid, GridColDef, GridRenderCellParams } from '@mui/x-data-grid';
 
 import StudienModul from "./StudienModul";
 
-export default function Studienablaufplan() {
+export default function Studienablaufplan({modulButtonHandler}) {
   var Minio = require("minio");
   var minioClient = new Minio.Client({
     endPoint: "141.56.132.18",
@@ -48,7 +48,7 @@ export default function Studienablaufplan() {
     renderCell: (params) => (
         <p>
            
-          <StudienModul value={params.value}></StudienModul>
+          <StudienModul modulButtonHandler ={modulButtonHandler} value={params.value}></StudienModul>
         </p>
       ),
    
@@ -57,7 +57,7 @@ export default function Studienablaufplan() {
     renderCell: (params) => (
         <p>
           
-          <StudienModul value={params.value}></StudienModul>
+          <StudienModul  modulButtonHandler ={modulButtonHandler} value={params.value}></StudienModul>
         </p>
       ),
     },
@@ -65,7 +65,7 @@ export default function Studienablaufplan() {
     renderCell: (params) => (
         <p>
           
-          <StudienModul value={params.value}></StudienModul>
+          <StudienModul  modulButtonHandler ={modulButtonHandler} value={params.value}></StudienModul>
         </p>
       ),
    },
@@ -73,7 +73,7 @@ export default function Studienablaufplan() {
     renderCell: (params) => (
         <p>
           
-          <StudienModul value={params.value}></StudienModul>
+          <StudienModul  modulButtonHandler ={modulButtonHandler} value={params.value}></StudienModul>
         </p>
       ),
     },
@@ -81,7 +81,7 @@ export default function Studienablaufplan() {
     renderCell: (params) => (
         <p>
          
-          <StudienModul value={params.value}></StudienModul>
+          <StudienModul modulButtonHandler ={modulButtonHandler} value={params.value}></StudienModul>
         </p>
       ),
     },

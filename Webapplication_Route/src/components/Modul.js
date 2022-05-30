@@ -7,7 +7,7 @@ import {
   useNavigate,
 } from "react-router-dom";
 
-export default function Modul({ userId,modul }) {
+export default function Modul({ userId, modul }) {
   const navigate = useNavigate();
   function backHandler() {
     navigate("/intern");
@@ -25,12 +25,15 @@ export default function Modul({ userId,modul }) {
   const [time, setTime] = React.useState(Date.now());
   const [dead, setDead] = React.useState([]);
   const [anwendungen, setAnwendungen] = React.useState([]);
-  const [news,setNews]= React.useState([]);
-  const [grades,setGrades]=React.useState([]);
-  const [schedule,setSchedule]=React.useState([]);
+  const [news, setNews] = React.useState([]);
+  const [grades, setGrades] = React.useState([]);
+  const [schedule, setSchedule] = React.useState([]);
+
+  const [load,setload]=React.useState(false);
+
 
   function start() {
-    console.log("satrt"+modul)
+    console.log("satrt" + modul);
     var arr = [];
     minioClient.getObject("status", "modul.json", function (err, dataStream) {
       if (err) {
@@ -44,11 +47,13 @@ export default function Modul({ userId,modul }) {
         for (var c = 0; c < m.length; c++) {
           if (m[c].modulId === modul) {
             setMod(m[c]);
-            setAnwendungen(m[c].usedModules)
-            setDead(m[c].deadlines)
-            setGrades(m[c].grades)
-            setNews(m[c].news)  
-            setSchedule(m[c].schedule)
+            setAnwendungen(m[c].usedModules);
+            setDead(m[c].deadlines);
+            setGrades(m[c].grades);
+            setNews(m[c].news);
+            setSchedule(m[c].schedule);
+            setload(true);
+            
           }
         }
       });
@@ -56,64 +61,106 @@ export default function Modul({ userId,modul }) {
   }
   React.useEffect(() => {
     start();
-  //  console.log(modul);
+    //  console.log(modul);
   }, []);
-  const deadLineList =dead.map((dead) => (
-    <ul>{dead.name}:{dead.doDatum}</ul>))
-  
-    const Anwendungsliste =anwendungen.map((list) => (
-    <ul><button>{list.id}:{list.name}:{list.spezificationNumber}</button></ul>))
+  const deadLineList = dead.map((dead) => (
+    <ul>
+      {dead.name}:{dead.doDatum}
+    </ul>
+  ));
 
-    const newsList =news.map((n) => (
-    <ul><label>{n.name+" "+n.expiryDate}</label></ul>))
+  const Anwendungsliste = anwendungen.map((list) => (
+    <ul>
+      <button>
+        {list.id}:{list.name}:{list.spezificationNumber}
+      </button>
+    </ul>
+  ));
 
-    const scheduleList =schedule.map((s) => (
-      <ul><label>{"Room: "+s.room+"\nTime: "+s.time+"\nDOF: "+s.dof+"\nWeek:"+s.week+"\nType: "+s.type}</label></ul>))
-  
-      const gradeList =grades.map((g) => (
-        <ul><label>{g.name+": "+g.grade+"->"+g.studentID+" ["+g.datum+"]"}</label></ul>))  
+  const newsList = news.map((n) => (
+    <ul>
+      <label>{n.name + " " + n.expiryDate}</label>
+    </ul>
+  ));
+
+  const scheduleList = schedule.map((s) => (
+    <ul>
+      <label>
+        {"Room: " +
+          s.room +
+          "\nTime: " +
+          s.time +
+          "\nDOF: " +
+          s.dof +
+          "\nWeek:" +
+          s.week +
+          "\nType: " +
+          s.type}
+      </label>
+    </ul>
+  ));
+
+  const gradeList = grades.map((g) => (
+    <ul>
+      <label>
+        {g.name + ": " + g.grade + "->" + g.studentID + " [" + g.datum + "]"}
+      </label>
+    </ul>
+  ));
   React.useEffect(() => {
     const interval = setInterval(() => setTime(Date.now()), 1000);
     return () => {
       clearInterval(interval);
-      
-     
     };
-  })
-
-    
+  });
 
   // eslint-disable-next-line no-lone-blocks
   {
-    if (mod === null)
+    if (!load) {
       return (
         <div>
-          <h1>please wait</h1>
+          <h1>please wait : there will be soon data</h1>
+          <p>later because there is no data</p>
+          <div>
+            <button onClick={backHandler}>back</button>
+           
+          </div>
         </div>
       );
-    else
+    } else {
       return (
         <div className="modulContainer">
           <div className="AlgemeineInfos">
-            <h1>{mod.modulId}{"    "}{mod.modulName}</h1>
-            <h2>{"Leiter  "}{mod.leader}</h2>
-            <h2>{"Email  "}{mod.leaderMail}</h2>
+            <p>{load}</p>
+            <h1>
+              {mod.modulId}
+              {"    "}
+              {mod.modulName}
+            </h1>
+            <h2>
+              {"Leiter  "}
+              {mod.leader}
+            </h2>
+            <h2>
+              {"Email  "}
+              {mod.leaderMail}
+            </h2>
           </div>
           <div className="deadlinesContainer">
             <h3>DeadLines</h3>
             <ul>{deadLineList}</ul>
           </div>
-          
+
           <div className="NewsContainer">
-          <h3>News</h3>
+            <h3>News</h3>
             <ul>{newsList}</ul>
           </div>
           <div className="scheduleContainer">
-          <h3>Schedule</h3>
+            <h3>Schedule</h3>
             <ul>{scheduleList}</ul>
           </div>
           <div className="gradeContainer">
-          <h3>Grade</h3>
+            <h3>Grade</h3>
             <ul>{gradeList}</ul>
           </div>
           <div className="AnwendungsContainer">
@@ -121,9 +168,9 @@ export default function Modul({ userId,modul }) {
           </div>
           <div>
             <button onClick={backHandler}>back</button>
-            
           </div>
         </div>
       );
+    }
   }
 }

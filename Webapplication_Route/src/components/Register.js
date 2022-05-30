@@ -133,7 +133,8 @@ export default function Register() {
                             age:age,
                             Nutzergruppe: nutzergruppe,
                             passwort: hashpassword,
-                            id: newid
+                            id: newid,
+                            module:["E802","I110","I121","I310","I381","I135","I320","I351","I378","I362"]
                         }
                         reg.push(ob);
                         upload(reg);
